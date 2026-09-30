@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Weather App</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+    <div class="weather-app">
+
+
+        <!-- HEADER -->
+
+        <div class="app-header">
+
+            <div class="title-row">
+
+                <div class="title-text">
+
+                    <h1>Weather App</h1>
+
+                    <p class="subtitle">
+                        your cute lil forecast ♡
+                    </p>
+
+                </div>
+
+
+                <div class="unit-toggle">
+
+                    <button
+                        id="fahrenheitButton"
+                        class="unit-button active"
+                    >
+                        °F
+                    </button>
+
+                    <button
+                        id="celsiusButton"
+                        class="unit-button"
+                    >
+                        °C
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="cityInput"
+                placeholder="search a city..."
+            >
+
+            <button id="searchButton">
+                Search
+            </button>
+
+        </div>
+
+
+        <!-- CURRENT WEATHER -->
+
+        <div class="weather-card">
+
+            <p class="current-label">
+                ✦ current weather ✦
+            </p>
+
+
+            <div
+                id="weatherIcon"
+                class="weather-icon"
+            >
+                ☀️
+            </div>
+
+
+            <h2 id="cityName">
+                Nashville
+            </h2>
+
+
+            <p class="temperature">
+
+    <span id="temperature">
+        --
+    </span>°
+
+    <span id="temperatureUnit">
+        F
+    </span>
+
+</p>
+
+<p class="feels-like">
+    feels like
+    <span id="feelsLike">--</span>°
+    <span id="feelsLikeUnit">F</span>
+</p>
+
+<p id="weatherCondition">
+    Weather condition
+</p>
+
+
+            <div class="weather-details">
+
+                <p>
+                    ♡ Humidity:
+                    <span id="humidity">
+                        --
+                    </span>%
+                </p>
+
+
+                <p>
+                    ☆ Wind:
+                    <span id="windSpeed">
+                        --
+                    </span> mph
+                </p>
+
+            </div>
+
+
+            <!-- VIBE -->
+
+            <div class="weather-vibe">
+
+                <p class="vibe-title">
+                    ♡ today's vibe
+                </p>
+
+                <p id="weatherMessage">
+                    checking the weather...
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- FORECAST -->
+
+        <div class="forecast-section">
+
+            <p class="forecast-title">
+                ✦ 5-day forecast ✦
+            </p>
+
+
+            <div
+                id="forecastContainer"
+                class="forecast-container"
+            >
+
+                <div class="forecast-placeholder">
+                    search a city to see the forecast ♡
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

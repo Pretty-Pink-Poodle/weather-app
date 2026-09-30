@@ -1,0 +1,640 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at 20% 20%, #ffffff 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 30%, #ffffff 0 2px, transparent 3px),
+        linear-gradient(135deg, #ffd6e8, #f8c3dc, #f4d7ff);
+
+    background-size: 120px 120px, 150px 150px, cover;
+}
+
+.weather-app {
+    width: 500px;
+    padding: 24px;
+
+    background: #fff7fb;
+
+    border: 3px solid #111;
+    border-radius: 24px;
+
+    box-shadow: 8px 8px 0 #111;
+}
+
+.app-header {
+    text-align: center;
+}
+
+.weather-app h1 {
+    margin: 0 0 6px;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    font-size: 36px;
+    letter-spacing: 2px;
+
+    color: #ff4f9a;
+
+    text-shadow:
+        2px 2px 0 #111;
+}
+
+.weather-app h1::after {
+    content: " ♡";
+}
+
+.subtitle {
+    margin-top: -5px;
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    font-style: italic;
+
+    color: #777;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+
+    margin: 24px 0;
+}
+
+.search-box input {
+    flex: 1;
+
+    padding: 13px 14px;
+
+    border: 2px solid #111;
+    border-radius: 12px;
+
+    background: white;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.search-box input:focus {
+    box-shadow: 0 0 0 3px #ffc1dc;
+}
+
+.search-box button {
+    padding: 12px 18px;
+
+    border: 2px solid #111;
+    border-radius: 12px;
+
+    background: #ff8fbd;
+
+    font-weight: bold;
+    font-size: 15px;
+
+    cursor: pointer;
+
+    box-shadow: 3px 3px 0 #111;
+
+    transition: 0.15s ease;
+}
+
+.search-box button:hover {
+    background: #ff6eaa;
+    transform: translateY(-2px);
+}
+
+.search-box button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #111;
+}
+
+.weather-card {
+    padding: 32px 26px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff 0%,
+            #fff 65%,
+            #fff0f7 100%
+        );
+
+    border: 2px solid #111;
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow: 5px 5px 0 #ff9fc5;
+}
+
+.current-label {
+    margin: 0 0 12px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.weather-icon {
+    font-size: 70px;
+    margin-bottom: 8px;
+}
+
+#cityName {
+    margin-top: 0;
+
+    font-size: 26px;
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.temperature {
+    margin: 12px 0;
+
+    font-size: 72px;
+    font-weight: 900;
+
+    color: #ff4f9a;
+
+    text-shadow:
+        2px 2px 0 #111;
+}
+
+#weatherCondition {
+    display: inline-block;
+
+    margin: 8px 0 24px;
+
+    padding: 7px 13px;
+
+    border: 2px solid #111;
+    border-radius: 999px;
+
+    background: #ffd4e6;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    text-transform: lowercase;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-top: 15px;
+}
+
+.weather-details p {
+    flex: 1;
+
+    margin: 0;
+
+    padding: 12px;
+
+    border: 2px solid #111;
+    border-radius: 10px;
+
+    background: white;
+
+    font-size: 14px;
+}
+
+.weather-vibe {
+    margin-top: 22px;
+
+    padding: 14px;
+
+    border: 2px solid #111;
+    border-radius: 12px;
+
+    background: #ffd9e9;
+}
+
+.vibe-title {
+    margin: 0 0 5px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#weatherMessage {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+.forecast-section {
+    margin-top: 28px;
+}
+
+.forecast-title {
+    text-align: center;
+
+    margin-bottom: 14px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.forecast-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 8px;
+}
+
+.forecast-card {
+    padding: 14px 8px;
+
+    text-align: center;
+
+    background: white;
+
+    border: 2px solid #111;
+    border-radius: 12px;
+
+    box-shadow: 3px 3px 0 #ff9fc5;
+}
+
+.forecast-day {
+    margin: 0 0 8px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
+
+.forecast-icon {
+    margin: 4px 0;
+
+    font-size: 28px;
+}
+
+.forecast-high {
+    margin: 6px 0 2px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    color: #ff4f9a;
+}
+
+.forecast-low {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #777;
+}
+
+.forecast-placeholder {
+    grid-column: 1 / -1;
+
+    padding: 18px;
+
+    text-align: center;
+
+    border: 2px dashed #111;
+    border-radius: 12px;
+
+    background: #fff;
+
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+
+    .weather-app {
+        width: 100%;
+    }
+
+    .forecast-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .forecast-card:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* WEATHER REACTIVE THEMES */
+
+body {
+    transition: background 0.6s ease;
+}
+
+.weather-app,
+.weather-card,
+.weather-vibe,
+.forecast-card,
+.search-box button,
+.temperature {
+    transition:
+        background 0.6s ease,
+        color 0.6s ease,
+        box-shadow 0.6s ease;
+}
+
+
+/* Sunny */
+
+body.sunny-theme {
+    background:
+        radial-gradient(circle at 20% 20%, #ffffff 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 30%, #fff7b2 0 2px, transparent 3px),
+        linear-gradient(135deg, #ffd1e4, #ffc8d8, #ffe7ad);
+}
+
+body.sunny-theme .temperature {
+    color: #ff5b94;
+}
+
+body.sunny-theme .weather-vibe {
+    background: #ffe1bd;
+}
+
+body.sunny-theme .forecast-card {
+    box-shadow: 3px 3px 0 #ffc36b;
+}
+
+body.sunny-theme .search-box button {
+    background: #ff9fbd;
+}
+
+
+/* Cloudy */
+
+body.cloudy-theme {
+    background:
+        radial-gradient(circle at 20% 20%, #ffffff 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 30%, #ffffff 0 2px, transparent 3px),
+        linear-gradient(135deg, #f5d1e7, #dcd3ff, #ccd8ff);
+}
+
+body.cloudy-theme .temperature {
+    color: #9c78d4;
+}
+
+body.cloudy-theme .weather-vibe {
+    background: #e8ddff;
+}
+
+body.cloudy-theme .forecast-card {
+    box-shadow: 3px 3px 0 #b8a1e6;
+}
+
+body.cloudy-theme .search-box button {
+    background: #c9b6ff;
+}
+
+
+/* Rain */
+
+body.rainy-theme {
+    background:
+        radial-gradient(circle at 20% 20%, #ffffff 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 30%, #ffffff 0 2px, transparent 3px),
+        linear-gradient(135deg, #e4cced, #bed7f7, #b6c9ed);
+}
+
+body.rainy-theme .temperature {
+    color: #5c92d8;
+}
+
+body.rainy-theme .weather-vibe {
+    background: #d7e8ff;
+}
+
+body.rainy-theme .forecast-card {
+    box-shadow: 3px 3px 0 #8eb8e8;
+}
+
+body.rainy-theme .search-box button {
+    background: #94c5f4;
+}
+
+
+/* Storm */
+
+body.storm-theme {
+    background:
+        radial-gradient(circle at 20% 20%, #ffffff 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 30%, #ffffff 0 2px, transparent 3px),
+        linear-gradient(135deg, #d7bddd, #a991c8, #6e6594);
+}
+
+body.storm-theme .temperature {
+    color: #8c5fc7;
+}
+
+body.storm-theme .weather-vibe {
+    background: #d9c8ef;
+}
+
+body.storm-theme .forecast-card {
+    box-shadow: 3px 3px 0 #7b5da4;
+}
+
+body.storm-theme .search-box button {
+    background: #b18cd9;
+}
+
+
+/* Snow */
+
+body.snow-theme {
+    background:
+        radial-gradient(circle at 20% 20%, #ffffff 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 30%, #ffffff 0 3px, transparent 4px),
+        linear-gradient(135deg, #f4d9ec, #def2ff, #d7e7ff);
+}
+
+body.snow-theme .temperature {
+    color: #77a7d9;
+}
+
+body.snow-theme .weather-vibe {
+    background: #e5f5ff;
+}
+
+body.snow-theme .forecast-card {
+    box-shadow: 3px 3px 0 #a7d4ee;
+}
+
+body.snow-theme .search-box button {
+    background: #bfe6f8;
+}
+
+
+/* Fog */
+
+body.fog-theme {
+    background:
+        radial-gradient(circle at 20% 20%, #ffffff 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 30%, #ffffff 0 2px, transparent 3px),
+        linear-gradient(135deg, #ead8e5, #d9d9e1, #cfcfd8);
+}
+
+body.fog-theme .temperature {
+    color: #8b7e91;
+}
+
+body.fog-theme .weather-vibe {
+    background: #ece7ee;
+}
+
+body.fog-theme .forecast-card {
+    box-shadow: 3px 3px 0 #aaa0af;
+}
+
+body.fog-theme .search-box button {
+    background: #d0c2d5;
+}
+
+/* EXTRA POLISH */
+
+body {
+    align-items: flex-start;
+    padding-top: 50px;
+    padding-bottom: 70px;
+}
+
+.weather-app {
+    margin-bottom: 30px;
+}
+
+.forecast-section {
+    padding-bottom: 10px;
+}
+
+.forecast-container {
+    gap: 10px;
+}
+
+.forecast-card {
+    min-height: 135px;
+}
+
+#cityName {
+    line-height: 1.2;
+}
+
+.search-box {
+    margin-top: 20px;
+}
+
+/* UNIT TOGGLE */
+
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.title-row > div:first-child {
+    flex: 1;
+}
+
+.unit-toggle {
+    display: flex;
+
+    border: 2px solid #111;
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow: 3px 3px 0 #111;
+}
+
+.unit-button {
+    padding: 8px 10px;
+
+    border: none;
+
+    background: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.unit-button:first-child {
+    border-right: 2px solid #111;
+}
+
+.unit-button.active {
+    background: #ff8fbd;
+}
+
+.unit-button:hover {
+    background: #ffd4e6;
+}
+
+.unit-button.active:hover {
+    background: #ff8fbd;
+}
+
+@media (max-width: 600px) {
+
+    .title-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.feels-like {
+    margin-top: -5px;
+    margin-bottom: 15px;
+
+    font-size: 13px;
+    font-style: italic;
+
+    color: #777;
+}
+
+.unit-button {
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.unit-button.active {
+    background: #ff5f9e;
+    color: white;
+}
+
+.unit-button:not(.active) {
+    background: white;
+    color: #111;
+}
+
+.unit-button:not(.active):hover {
+    background: #ffd4e6;
+}
