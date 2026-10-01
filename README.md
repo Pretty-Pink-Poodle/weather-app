@@ -10,6 +10,8 @@ https://pretty-pink-poodle.github.io/weather-app/
 
 A cute, responsive weather app featuring dynamic themes, weather icons, and a custom forecast experience.
 
+![Weather App Preview](screenshot.png)
+
 ## Features
 
 - Search weather by city
